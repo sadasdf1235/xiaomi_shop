@@ -9,7 +9,8 @@ import 'package:xiaomi_shop/app/modules/product_content/views/page/bodys/third_p
 
 class ProductContentBody extends GetView<ProductContentController> {
   final Function showAttr;
-  const ProductContentBody(this.showAttr,{Key? key}) : super(key: key);
+  final Function subHeader;
+  const ProductContentBody(this.showAttr,this.subHeader,{Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class ProductContentBody extends GetView<ProductContentController> {
       child: Column(
         children: [
           FirstPage(showAttr),
-          const SecondPage(),
+          SecondPage(subHeader),
           const ThirdPage(),
         ],
       ),

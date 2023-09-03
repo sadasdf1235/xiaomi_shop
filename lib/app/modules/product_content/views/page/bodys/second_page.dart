@@ -4,7 +4,8 @@ import 'package:xiaomi_shop/app/modules/product_content/controllers/product_cont
 
 import '../../../../../services/screen_adapter.dart';
 class SecondPage extends GetView<ProductContentController> {
-  const SecondPage({super.key});
+  final Function subHeader;
+  const SecondPage(this.subHeader,{super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,11 @@ class SecondPage extends GetView<ProductContentController> {
       width: ScreenAdapter.width(1080),
       height: ScreenAdapter.height(3000),
       color: Colors.green,
-      child: const Text("详情"),
+      child: Stack(
+        children: [
+          subHeader()
+        ],
+      ),
     );
   }
 }

@@ -18,8 +18,17 @@ class ProductContentView extends GetView<ProductContentController> {
       appBar: _appbar(),
       body: Stack(
         children: [
-          ProductContentBody(showAttr),
+          ProductContentBody(showAttr, subHeader),
           ProductContentBottom(showAttr),
+          Obx(() => controller.showSubHeader.value
+              ? Positioned(
+                  left: 0,
+                  right: 0,
+                  top: ScreenAdapter.getStatusBarHeight() +
+                      ScreenAdapter.height(120),
+                  child: subHeader(),
+                )
+              : const Text(""))
         ],
       ),
     );
@@ -56,7 +65,8 @@ class ProductContentView extends GetView<ProductContentController> {
                                       (v) => InkWell(
                                         onTap: () {
                                           //点击颜色切换
-                                          controller.changeAttr(e.cate, v["title"]);
+                                          controller.changeAttr(
+                                              e.cate, v["title"]);
                                         },
                                         child: Container(
                                           padding: EdgeInsets.all(
@@ -66,10 +76,11 @@ class ProductContentView extends GetView<ProductContentController> {
                                                   left: ScreenAdapter.width(20),
                                                   right:
                                                       ScreenAdapter.width(20)),
-                                              backgroundColor: v["checked"] == true
-                                                  ? Colors.red
-                                                  : const Color.fromARGB(
-                                                  31, 223, 213, 213),
+                                              backgroundColor:
+                                                  v["checked"] == true
+                                                      ? Colors.red
+                                                      : const Color.fromARGB(
+                                                          31, 223, 213, 213),
                                               label: Text(v["title"])),
                                         ),
                                       ),
@@ -84,5 +95,31 @@ class ProductContentView extends GetView<ProductContentController> {
             ),
           );
         }));
+  }
+
+  Widget subHeader() {
+    return Container(
+      color: Colors.white,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Container(
+              height: ScreenAdapter.height(120),
+              alignment: Alignment.center,
+              child: const Text(
+                "商品详情",
+                style: TextStyle(color: Colors.red),
+              ),
+            ),
+          ),
+          Expanded(
+              child: Container(
+                  height: ScreenAdapter.height(120),
+                  alignment: Alignment.center,
+                  child: const Text("规格参数")))
+        ],
+      ),
+    );
   }
 }

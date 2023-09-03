@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:xiaomi_shop/app/models/pcontent/pcontent_model.dart';
+import 'package:xiaomi_shop/app/services/screen_adapter.dart';
 import '../../../services/https_client.dart';
 
 class ProductContentController extends GetxController {
@@ -33,6 +36,10 @@ class ProductContentController extends GetxController {
   var pcontent = PcontentItemModel().obs;
   //已选 弹框
   RxList<PcontentAttrModel> pcontentAttr = <PcontentAttrModel>[].obs;
+  //container的位置
+  double gk2Position = 0.0;
+  double gk3Position = 0.0;
+  RxBool showSubHeader = false.obs;
 
   @override
   void onInit() {
@@ -54,6 +61,19 @@ class ProductContentController extends GetxController {
   initScrollerController(){
     scrollController.addListener(() {
       var pixels = scrollController.position.pixels;
+      /*
+      只有在元素渲染后，所以不能在onInit中
+      手指滑动时，获取位置
+       */
+      if(gk2Position == 0 && gk3Position == 0){
+        //获取的是距离顶部的高度，需要加上滚动条的高度
+        getContainerPosition(pixels);
+      }
+      if(pixels > gk2Position && pixels < gk3Position){
+          showSubHeader.value = true;
+      }else{
+        showSubHeader.value = false;
+      }
       if(pixels <= 100){
         opactity.value = pixels / 100;
         showTabs.value = false;
@@ -62,6 +82,15 @@ class ProductContentController extends GetxController {
       }
       update();
     });
+  }
+  //获取元素位置
+  getContainerPosition(pixels){
+    RenderBox renderBox1 = gk2.currentContext!.findRenderObject() as RenderBox;
+    var h = pixels - (ScreenAdapter.getStatusBarHeight() + ScreenAdapter.height(120));
+    gk2Position = renderBox1.localToGlobal(Offset.zero).dy + h;
+    RenderBox renderBox2 = gk3.currentContext!.findRenderObject() as RenderBox;
+    gk3Position = renderBox2.localToGlobal(Offset.zero).dy + h;
+    update();
   }
   //顶部选中
   changeSelectTabIndex(index){
