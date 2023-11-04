@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
 import 'package:get/get.dart';
-import 'package:dio/dio.dart';
 
 import 'package:xiaomi_shop/app/models/home/category_model.dart';
 import 'package:xiaomi_shop/app/models/home/focus_model.dart';
@@ -53,8 +52,10 @@ class HomeController extends GetxController {
   //获取轮播图数据
   void getSwiperList() async{
     final response = await request.get("/api/focus");
+    print("发起了请求");
     var focus = FocusModel.fromJson(response.data);
     swiperList.value = focus.result!;
+    print("swiper${swiperList.value}");
     update();
   }
   //获取分类数据
