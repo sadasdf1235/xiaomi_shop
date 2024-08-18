@@ -1,9 +1,9 @@
-class Pcontent {
+class PcontentModel {
   PcontentItemModel? result;
 
-  Pcontent({this.result});
+  PcontentModel({this.result});
 
-  Pcontent.fromJson(Map<String, dynamic> json) {
+  PcontentModel.fromJson(Map<String, dynamic> json) {
     result = json['result'] != null ? PcontentItemModel?.fromJson(json['result']) : null;
   }
 

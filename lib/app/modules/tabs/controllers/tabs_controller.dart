@@ -11,7 +11,7 @@ class TabsController extends GetxController {
 
   RxInt currentIndex = 0.obs;
   PageController pageController = PageController(initialPage: 0);
-  List<Widget> pages = const <Widget>[
+  List<Widget> pages = <Widget>[
     HomeView(),
     CategoryView(),
     GiveView(),
