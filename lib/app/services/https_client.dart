@@ -15,6 +15,16 @@ class HttpsClient{
       print(e);
     }
   }
+
+  Future post(String url,{Map? data}) async{
+    try{
+      final response = await dio.post(url,data: data);
+      return response;
+    }catch(e){
+      print(e);
+    }
+  }
+
   static String replaceUrl(String url){
     String s = url.replaceAll("\\", "/");
     String imageUrl = domain + "/" + s;

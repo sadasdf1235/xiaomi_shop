@@ -1,5 +1,6 @@
 import 'storage.dart';
 import '../models/pcontent/pcontent_model.dart';
+import '../models/pcontent/pcontent_model.dart';
 
 class CartServices {
   //增加购物车
@@ -94,9 +95,8 @@ class CartServices {
   }
 
   static void setCartList(cartListData) async {
-      await Storage.setData("cartList", cartListData);
+    await Storage.setData("cartList", cartListData);
   }
-
 
   // 获取选中的CartList数据
   static getCheckedCartData() async {
@@ -113,8 +113,58 @@ class CartServices {
       return [];
     }
   }
+
   //清空购物车
   static clearCartData() async {
     await Storage.clear();
   }
+
+  //结算后删除购物车中要结算的商品
+  static deleteCheckOutData(checkOutList) async {
+    List? cartListData = await Storage.getData("cartList");
+    if (cartListData != null) {
+      var tempList = [];
+      for (var i = 0; i < cartListData.length; i++) {
+        if (!hasCheckOutData(checkOutList, cartListData[i])) {
+          tempList.add(cartListData[i]);
+        }
+      }
+      //保存数据到购物车
+      setCartList(tempList);
+    }
+  }
+
+  static hasCheckOutData(checkOutList, cartItem) {
+    for (var i = 0; i < checkOutList.length; i++) {
+      if (checkOutList[i]["_id"] == cartItem["_id"] &&
+          checkOutList[i]["selectedAttr"] == cartItem["selectedAttr"]) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /*
+  static deleteCheckOutData(){
+      List cartList=["1","2","3","4"];
+      var tempList=[];
+      for (var i = 0; i < cartList.length; i++) {
+          if(!hasCheckOutData(cartList[i])){
+            tempList.add(cartList[i]);
+          }
+      }
+      print(tempList);       //[1, 4]
+  }
+  
+  static hasCheckOutData(cartItem){
+    List checkOutList=["2","3"];
+    for (var i = 0; i < checkOutList.length; i++) {
+        if(checkOutList[i]==cartItem){
+          return true;
+        }
+    }
+    return false;
+  }
+ */
+
 }
