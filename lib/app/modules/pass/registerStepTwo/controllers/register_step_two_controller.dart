@@ -35,7 +35,7 @@ class RegisterStepTwoController extends GetxController {
 
   //重新发送验证码
   void sendCode() async {
-    var response = await httpsClient.post("api/sendCode", data: {"tel": tel});
+    var response = await httpsClient.post("/api/sendCode", data: {"tel": tel});
     if (response != null) {
       print(response);
       if (!response.data["success"]) {
@@ -56,7 +56,7 @@ class RegisterStepTwoController extends GetxController {
 
   //验证验证码
   Future<bool> validateCode() async {
-    var response = await httpsClient.post("api/validateCode", data: {
+    var response = await httpsClient.post("/api/validateCode", data: {
       "tel": tel, //上一个页面穿过来的手机号
       "code": editingController.text
     });

@@ -31,7 +31,7 @@ class AddressListController extends GetxController {
       "salt": userInfo.salt //私钥
     });
     var response =
-        await httpsClient.get("api/addressList?uid=${userInfo.sId}&sign=$sign");
+        await httpsClient.get("/api/addressList?uid=${userInfo.sId}&sign=$sign");
     if(response!=null){
       var tempAddressList= AddressModel.fromJson(response.data);
       addressList.value=tempAddressList.result!;
@@ -48,7 +48,7 @@ class AddressListController extends GetxController {
       "salt": userInfo.salt //私钥
     });
     var response =
-        await httpsClient.post("api/changeDefaultAddress",data: {
+        await httpsClient.post("/api/changeDefaultAddress",data: {
             ...tempJson,
             "sign":sign
         });
@@ -66,7 +66,7 @@ class AddressListController extends GetxController {
       "salt": userInfo.salt //私钥
     });
     var response =
-        await httpsClient.post("api/deleteAddress",data: {
+        await httpsClient.post("/api/deleteAddress",data: {
             ...tempJson,
             "sign":sign
         });

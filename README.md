@@ -1,16 +1,19 @@
 # xiaomi_shop
 
-A new Flutter project.
+## 预览
 
-## Getting Started
+<img src="show/home.png" alt="home" style="zoom:50%;" />
 
-This project is a starting point for a Flutter application.
+<img src="show/home_list.png" style="zoom: 50%;" />
 
-A few resources to get you started if this is your first Flutter project:
+<img src="show\category.png" style="zoom:50%;" />
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<img src="show\user.png" style="zoom:50%;" />
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="show\product_content.png" style="zoom:50%;" />
+
+<img src="show\product_content2.png" style="zoom:50%;" />
+
+<img src="show\product_content3.png" style="zoom:50%;" />
+
+<img src="show\order.png" style="zoom:50%;" />

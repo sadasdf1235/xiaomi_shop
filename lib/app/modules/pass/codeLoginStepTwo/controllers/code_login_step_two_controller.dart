@@ -43,7 +43,7 @@ class CodeLoginStepTwoController extends GetxController {
   //发送验证码
   Future<MessageModel> sendCode() async {
     var response = await httpsClient
-        .post("api/sendLoginCode", data: {"tel": tel});
+        .post("/api/sendLoginCode", data: {"tel": tel});
     if (response != null) {
       print(response);
       if (response.data["success"]) {
@@ -61,7 +61,7 @@ class CodeLoginStepTwoController extends GetxController {
   
   //执行登录
   Future<MessageModel> doLogin() async{      
-      var response = await httpsClient.post("api/validateLoginCode",data:{
+      var response = await httpsClient.post("/api/validateLoginCode",data:{
         "tel":tel,
         "code":editingController.text
       });

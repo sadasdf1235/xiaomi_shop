@@ -21,7 +21,7 @@ class CodeLoginStepOneController extends GetxController {
   //发送验证码
   Future<MessageModel> sendCode() async {
     var response = await httpsClient
-        .post("api/sendLoginCode", data: {"tel": telController.text});
+        .post("/api/sendLoginCode", data: {"tel": telController.text});
     if (response != null) {
       print(response);
       if (response.data["success"]) {

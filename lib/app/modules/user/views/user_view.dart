@@ -6,7 +6,7 @@ import '../../../services/screen_adapter.dart';
 import '../../../widget/passButton.dart';
 import '../controllers/user_controller.dart';
 
-import '../../../services/ityingFonts.dart';
+import '../../../services/ldFonts.dart';
 
 class UserView extends GetView<UserController> {
   const UserView({Key? key}) : super(key: key);

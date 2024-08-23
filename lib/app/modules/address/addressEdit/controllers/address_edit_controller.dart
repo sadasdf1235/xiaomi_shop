@@ -70,7 +70,7 @@ class AddressEditController extends GetxController {
          ...tempJson,    //合并对象
          "salt": userInfo.salt, //登录成功后服务器返回的salt  私钥
       });
-      var response=await httpsClient.post("api/editAddress", data: {
+      var response=await httpsClient.post("/api/editAddress", data: {
            ...tempJson,    
            "sign":sign
       });

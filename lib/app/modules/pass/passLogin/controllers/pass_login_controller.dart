@@ -22,7 +22,7 @@ class PassLoginController extends GetxController {
   }
 
  Future<MessageModel> doLogin() async{
-    var response = await httpsClient.post("api/doLogin",data:{
+    var response = await httpsClient.post("/api/doLogin",data:{
         "username":telController.text,
         "password":passController.text,
       });

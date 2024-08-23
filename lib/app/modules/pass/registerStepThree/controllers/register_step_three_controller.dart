@@ -22,7 +22,7 @@ class RegisterStepThreeController extends GetxController {
   }
   //执行注册
  Future<MessageModel> doRegister() async{
-     var response = await httpsClient.post("api/register",data:{
+     var response = await httpsClient.post("/api/register",data:{
         "tel":tel,
         "password":passController.text,
         "code":code

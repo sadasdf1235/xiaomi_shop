@@ -48,7 +48,7 @@ class CheckoutController extends GetxController {
       "salt": userInfo.salt //私钥
     });
     var response = await httpsClient
-        .get("api/oneAddressList?uid=${userInfo.sId}&sign=$sign");
+        .get("/api/oneAddressList?uid=${userInfo.sId}&sign=$sign");
     print(response);
 
     if (response != null) {
@@ -90,7 +90,7 @@ class CheckoutController extends GetxController {
         "salt": userInfo.salt //私钥
       });
       var response = await httpsClient
-          .post("api/doOrder", data: {...tempJson, "sign": sign});
+          .post("/api/doOrder", data: {...tempJson, "sign": sign});
       print(response.data);
       if(response.data["success"]){
         //删除购物车中选中的商品

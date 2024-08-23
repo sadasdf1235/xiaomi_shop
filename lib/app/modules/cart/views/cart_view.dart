@@ -91,7 +91,9 @@ class CartView extends GetView {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               10)))),
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            Get.toNamed("/checkout");
+                                          },
                                           child: Text("结算"))
                                     ],
                                   )

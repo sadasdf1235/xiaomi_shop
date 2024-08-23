@@ -14,7 +14,7 @@ class AddressAddController extends GetxController {
   RxString area = "".obs;
   HttpsClient httpsClient = HttpsClient();
 
-  AddressListController listController=Get.find<AddressListController>();
+  AddressListController listController=Get.put<AddressListController>(AddressListController());
 
   @override
   void onInit() {
@@ -57,7 +57,7 @@ class AddressAddController extends GetxController {
          ...tempJson,    //合并对象
          "salt": userInfo.salt, //登录成功后服务器返回的salt  私钥
       });
-      var response=await httpsClient.post("api/addAddress", data: {
+      var response=await httpsClient.post("/api/addAddress", data: {
            ...tempJson,    
            "sign":sign
       });

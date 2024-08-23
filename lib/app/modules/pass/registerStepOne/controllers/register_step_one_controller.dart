@@ -17,7 +17,7 @@ class RegisterStepOneController extends GetxController {
   }
   //发送验证码
   Future<MessageModel> sendCode() async{
-      var response = await httpsClient.post("api/sendCode",data:{
+      var response = await httpsClient.post("/api/sendCode",data:{
         "tel":editingController.text
       });
       if (response != null) {
