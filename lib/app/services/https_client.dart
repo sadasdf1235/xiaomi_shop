@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 class HttpsClient{
-  static String domain = "https://xiaomi.itying.com";
+  static String domain = "https://miapp.itying.com";
   static Dio dio = Dio();
   HttpsClient(){
     dio.options.baseUrl = domain;
@@ -27,7 +27,7 @@ class HttpsClient{
 
   static String replaceUrl(String url){
     String s = url.replaceAll("\\", "/");
-    String imageUrl = domain + "/" + s;
+    String imageUrl = "$domain/$s";
     return imageUrl;
   }
 }

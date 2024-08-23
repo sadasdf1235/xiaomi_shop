@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:xiaomi_shop/app/modules/tabs/bindings/tabs_binding.dart';
 
 import 'app/routes/app_pages.dart';
 

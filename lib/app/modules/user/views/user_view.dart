@@ -199,7 +199,7 @@ class UserView extends GetView<UserController> {
                               Text(
                                 "-",
                                 style: TextStyle(
-                                  fontSize: ScreenAdapter.fontSize(80),
+                                  fontSize: ScreenAdapter.fontSize(40),
                                 ),
                               ),
                               Text("米金",
@@ -216,7 +216,7 @@ class UserView extends GetView<UserController> {
                               Text(
                                 "-",
                                 style: TextStyle(
-                                    fontSize: ScreenAdapter.fontSize(80)),
+                                    fontSize: ScreenAdapter.fontSize(40)),
                               ),
                               Text("优惠券",
                                   style: TextStyle(
@@ -231,7 +231,7 @@ class UserView extends GetView<UserController> {
                             children: [
                               Text("-",
                                   style: TextStyle(
-                                      fontSize: ScreenAdapter.fontSize(80))),
+                                      fontSize: ScreenAdapter.fontSize(40))),
                               Text("红包",
                                   style: TextStyle(
                                       fontSize: ScreenAdapter.fontSize(34),
@@ -245,7 +245,7 @@ class UserView extends GetView<UserController> {
                             children: [
                               Text("-",
                                   style: TextStyle(
-                                      fontSize: ScreenAdapter.fontSize(80))),
+                                      fontSize: ScreenAdapter.fontSize(40))),
                               Text("最高额度",
                                   style: TextStyle(
                                       fontSize: ScreenAdapter.fontSize(34),

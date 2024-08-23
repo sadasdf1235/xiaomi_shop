@@ -93,7 +93,7 @@ class HomePageBestSelling extends GetView<HomeController> {
                                     Text(
                                       "￥${value.price!}元",
                                       style: TextStyle(
-                                          fontSize: ScreenAdapter.fontSize(34)),
+                                          fontSize: ScreenAdapter.fontSize(30)),
                                     ),
                                   ],
                                 ),
