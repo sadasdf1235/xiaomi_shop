@@ -2,9 +2,9 @@
 
 ## 预览
 
-<img src="show/home.png" alt="home" style="zoom:50%;" />
+<img src="show\home.png" alt="home" style="zoom:50%;" />
 
-<img src="show/home_list.png" style="zoom: 50%;" />
+<img src="show\home_list.png" style="zoom: 50%;" />
 
 <img src="show\category.png" style="zoom:50%;" />
 
